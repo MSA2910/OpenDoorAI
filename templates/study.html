@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Assistant | OpenDoor AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/main.css') }}?v=3">
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/study.css') }}?v=3">
+</head>
+<body>
+
+    <header class="site-header">
+        <a href="/" class="brand">
+            <span class="brand-icon">O</span>
+            <span>OpenDoor<span class="brand-highlight"> AI</span></span>
+        </a>
+
+        <nav class="site-nav">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/study" class="nav-link active">Study</a>
+            <a href="/career" class="nav-link">Career</a>
+        </nav>
+
+        <a href="/career" class="header-cta">Explore Careers <span>↗</span></a>
+    </header>
+
+    <main class="study-page">
+
+        <section class="study-header">
+            <span class="study-eyebrow">✦ YOUR PERSONAL STUDY SPACE</span>
+
+            <h1>Learn at your pace.<br>
+                <span>Understand more.</span>
+            </h1>
+
+            <p>
+                Tell us what you want to learn, and OpenDoor AI will help
+                you organize your learning into manageable topics.
+                Start with a subject and build your understanding step by step.
+            </p>
+        </section>
+
+        <section class="study-input-box">
+            <form action="/start-study" method="POST">
+
+    <div>
+        <label for="topic">What would you like to learn?</label>
+        <input
+            type="text"
+            id="topic"
+            name="subject"
+            placeholder="e.g. C programming, Python, Data Structures"
+            required
+            maxlength="200"
+        >
+    </div>
+
+    <button type="submit">
+        Create My Learning Path <span>→</span>
+    </button>
+
+</form>
+        </section>
+
+        <section class="study-info">
+            <div>
+                <strong>01 · Choose a topic</strong>
+                <p>Start with a subject or concept you want to understand.</p>
+            </div>
+
+            <div>
+                <strong>02 · Follow the path</strong>
+                <p>Break the subject into smaller learning steps.</p>
+            </div>
+
+            <div>
+                <strong>03 · Learn by doing</strong>
+                <p>Explore explanations and practice as you progress.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <a href="/" class="brand footer-brand">
+            <span class="brand-icon">O</span>
+            <span>OpenDoor<span class="brand-highlight"> AI</span></span>
+        </a>
+
+        <p>Making learning and career discovery more accessible.</p>
+
+        <div class="footer-links">
+            <a href="/study">Study</a>
+            <a href="/career">Career</a>
+        </div>
+
+        <span class="copyright">© 2026 OpenDoor AI</span>
+    </footer>
+
+</body>
+</html>

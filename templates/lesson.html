@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Introduction - {{ topic }} - OpenDoor AI</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/lesson.css') }}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <div class="logo">OpenDoor AI</div>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="/study">Study</a>
+            <a href="/career">Career</a>
+            <a href="/scholarships">Scholarships</a>
+        </nav>
+    </header>
+
+
+    <main class="lesson-page">
+
+        <!-- Sidebar -->
+        <aside class="lesson-sidebar">
+
+            <p class="sidebar-label">{{ topic }}</p>
+
+            <h3>Your Progress</h3>
+
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+
+            <p class="progress-text">1 of 8 topics</p>
+
+
+            <div class="lesson-menu">
+
+                <a href="#" class="lesson-menu-item active">
+                    <span>01</span>
+                    Introduction
+                </a>
+
+                <a href="#" class="lesson-menu-item">
+                    <span>02</span>
+                    Core Concepts
+                </a>
+
+                <a href="#" class="lesson-menu-item">
+                    <span>03</span>
+                    Important Techniques
+                </a>
+
+                <a href="#" class="lesson-menu-item">
+                    <span>04</span>
+                    Practical Examples
+                </a>
+
+                <a href="#" class="lesson-menu-item">
+                    <span>05</span>
+                    Advanced Concepts
+                </a>
+
+                <a href="#" class="lesson-menu-item">
+                    <span>06</span>
+                    Applications
+                </a>
+
+                <a href="#" class="lesson-menu-item">
+                    <span>07</span>
+                    Common Mistakes
+                </a>
+
+                <a href="#" class="lesson-menu-item">
+                    <span>08</span>
+                    Practice & Review
+                </a>
+
+            </div>
+
+        </aside>
+
+
+        <!-- Lesson Content -->
+        <section class="lesson-content">
+
+            <div class="lesson-heading">
+
+                <span class="lesson-tag">TOPIC 01</span>
+
+                <h1>Introduction to {{ topic }}</h1>
+
+                <p>
+                    Let's start with the basic ideas and understand
+                    what {{ topic }} is and why it matters.
+                </p>
+
+            </div>
+
+
+            <!-- Concept -->
+            <section class="lesson-section">
+
+                <h2>What is {{ topic }}?</h2>
+
+                <p>
+                    {{ topic }} is an important concept that helps us
+                    understand how different ideas, techniques and
+                    problems are handled in this field.
+                </p>
+
+                <p>
+                    Before learning advanced concepts, it is important
+                    to understand the basic ideas and terminology.
+                </p>
+
+            </section>
+
+
+            <!-- Simple Idea -->
+            <section class="concept-box">
+
+                <div class="concept-icon">💡</div>
+
+                <div>
+                    <h3>Simple Idea</h3>
+
+                    <p>
+                        Think of {{ topic }} as a collection of ideas
+                        and techniques that help you solve problems
+                        in a structured way.
+                    </p>
+                </div>
+
+            </section>
+
+
+            <!-- Why Important -->
+            <section class="lesson-section">
+
+                <h2>Why is it important?</h2>
+
+                <p>
+                    Understanding the fundamentals gives you a strong
+                    foundation for learning more advanced topics.
+                </p>
+
+                <ul class="lesson-list">
+
+                    <li>Builds strong fundamentals</li>
+
+                    <li>Makes advanced concepts easier to understand</li>
+
+                    <li>Helps you solve practical problems</li>
+
+                    <li>Improves your technical thinking</li>
+
+                </ul>
+
+            </section>
+
+
+            <!-- Example -->
+            <section class="example-box">
+
+                <div class="example-header">
+
+                    <span>EXAMPLE</span>
+
+                    <h2>A simple example</h2>
+
+                </div>
+
+                <p>
+                    Suppose we want to store several numbers and
+                    access them efficiently.
+                </p>
+
+                <pre><code>int numbers[] = {10, 20, 30, 40};</code></pre>
+
+                <p>
+                    Here, the numbers are stored together so that
+                    they can be accessed when needed.
+                </p>
+
+            </section>
+
+
+            <!-- Key Points -->
+            <section class="lesson-section">
+
+                <h2>Key Points</h2>
+
+                <div class="key-points">
+
+                    <div class="key-point">
+                        <span>01</span>
+                        <p>Understand the basic terminology.</p>
+                    </div>
+
+                    <div class="key-point">
+                        <span>02</span>
+                        <p>Focus on understanding before memorizing.</p>
+                    </div>
+
+                    <div class="key-point">
+                        <span>03</span>
+                        <p>Practice concepts with simple examples.</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- AI Tutor -->
+            <section class="ai-tutor-box">
+
+                <div class="ai-tutor-icon">✦</div>
+
+                <div class="ai-tutor-content">
+
+                    <span>OPEN DOOR AI TUTOR</span>
+
+                    <h2>Need help understanding this?</h2>
+
+                    <p>
+                        Ask the AI tutor to explain the concept
+                        in simpler words or give you another example.
+                    </p>
+
+                    <button class="tutor-btn">
+                        Ask AI Tutor →
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- Navigation -->
+            <div class="lesson-navigation">
+
+                <button class="secondary-btn" disabled>
+                    ← Previous
+                </button>
+
+                <button class="complete-btn">
+                    ✓ Mark as Complete
+                </button>
+
+                <button class="primary-btn">
+                    Next →
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

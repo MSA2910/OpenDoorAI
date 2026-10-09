@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Your Study Plan | OpenDoor AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/main.css') }}?v=5">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/study.css') }}?v=5">
+
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <a href="/" class="brand">
+            <span class="brand-icon">O</span>
+            <span>OpenDoor<span class="brand-highlight"> AI</span></span>
+        </a>
+
+        <nav class="site-nav">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/study" class="nav-link active">Study</a>
+            <a href="/career" class="nav-link">Career</a>
+        </nav>
+
+        <a href="/career" class="header-cta">
+            Explore Careers <span>↗</span>
+        </a>
+    </header>
+
+
+    <main class="plan-page">
+
+        <!-- Page introduction -->
+        <section class="plan-heading">
+            <div class="plan-heading-copy">
+                <span class="plan-eyebrow">
+                    <span>✦</span> YOUR PERSONAL LEARNING PLAN
+                </span>
+
+                <h1>Your learning journey<br>
+                    <span>starts here.</span>
+                </h1>
+
+                <p>
+                    Your study plan is ready. Review the material, then start
+                    learning one topic at a time at your own pace.
+                </p>
+            </div>
+
+            <div class="plan-summary-card">
+                <div class="plan-summary-icon">✎</div>
+                <span class="plan-summary-label">YOUR NEXT STEP</span>
+                <strong>Turn your plan into progress</strong>
+                <p>Start with the first topic and build your understanding step by step.</p>
+            </div>
+        </section>
+
+
+        <!-- Study plan -->
+        <section class="plan-card">
+
+            <div class="plan-card-header">
+                <div class="plan-document-icon">≡</div>
+
+                <div>
+                    <span class="plan-card-kicker">GENERATED FOR YOU</span>
+                    <h2>Your study plan</h2>
+                </div>
+
+                <span class="plan-ready-badge">
+                    <span></span> Ready to learn
+                </span>
+            </div>
+
+            <div class="plan-content">
+                {{ plan | markdown_to_html | safe }}
+            </div>
+
+            <div class="plan-card-footer">
+                <div class="plan-footer-note">
+                    <span>✦</span>
+                    <span>Work through the topics at a pace that suits you.</span>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Actions -->
+        <section class="plan-actions-section">
+            <div class="plan-actions-copy">
+                <span class="section-kicker">READY TO BEGIN?</span>
+                <h2>Make your first step count.</h2>
+                <p>
+                    Move from planning to learning. Open your topic list
+                    and start working through the material.
+                </p>
+            </div>
+
+            <div class="plan-actions">
+
+                <form action="/begin-study" method="POST">
+                    <input type="hidden" name="plan" value="{{ plan }}">
+
+                    <button type="submit" class="plan-primary-btn">
+                        Start Learning <span>→</span>
+                    </button>
+                </form>
+
+                <a href="/study" class="plan-secondary-btn">
+                    Create Another Plan
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <a href="/" class="brand footer-brand">
+            <span class="brand-icon">O</span>
+            <span>OpenDoor<span class="brand-highlight"> AI</span></span>
+        </a>
+
+        <p>Making learning and career discovery more accessible.</p>
+
+        <div class="footer-links">
+            <a href="/study">Study</a>
+            <a href="/career">Career</a>
+        </div>
+
+        <span class="copyright">© 2026 OpenDoor AI</span>
+    </footer>
+
+</body>
+</html>

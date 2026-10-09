@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenDoor AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="site-header">
+        <a href="/" class="brand" aria-label="OpenDoor AI home">
+            <span class="brand-icon">O</span>
+            <span>OpenDoor<span class="brand-highlight"> AI</span></span>
+        </a>
+
+        <nav class="site-nav">
+            <a href="/" class="nav-link active">Home</a>
+            <a href="/study" class="nav-link">Study</a>
+            <a href="/career" class="nav-link">Career</a>
+        </nav>
+
+        <a href="/study" class="header-cta">Get Started <span>↗</span></a>
+    </header>
+
+    <main>
+
+        <!-- Hero -->
+        <section class="home-hero">
+            <div class="hero-copy">
+                <div class="eyebrow">
+                    <span class="eyebrow-dot"></span>
+                    YOUR LEARNING JOURNEY STARTS HERE
+                </div>
+
+                <h1>
+                    Your potential.<br>
+                    <span>Your next chapter.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Learn what matters, build valuable skills, and discover
+                    career paths that match your potential — all in one place.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="/study" class="btn btn-primary">
+                        Start Learning <span>→</span>
+                    </a>
+
+                    <a href="/career" class="btn btn-secondary">
+                        Explore Careers
+                    </a>
+                </div>
+
+                <div class="hero-trust">
+                    <div class="trust-icon">✦</div>
+                    <p><strong>Learn at your own pace</strong><br>
+                    <span>Your goals, your journey.</span></p>
+                </div>
+            </div>
+
+            <!-- Learning preview -->
+            <div class="hero-preview">
+                <div class="preview-glow"></div>
+
+                <div class="preview-window">
+                    <div class="window-top">
+                        <div class="window-dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <span class="window-label">YOUR PERSONAL LEARNING SPACE</span>
+                    </div>
+
+                    <div class="preview-welcome">
+                        <span class="preview-kicker">A NEW DAY TO GROW</span>
+                        <h2>Where will you<br>go from here?</h2>
+                        <p>Take the next step toward your goals.</p>
+                    </div>
+
+                    <a href="/study" class="preview-card study-preview">
+                        <div class="preview-card-icon">✎</div>
+                        <div class="preview-card-copy">
+                            <span>01 · LEARN</span>
+                            <h3>Understand something new</h3>
+                            <p>Explore a topic with AI-assisted study.</p>
+                        </div>
+                        <span class="preview-arrow">↗</span>
+                    </a>
+
+                    <a href="/career" class="preview-card career-preview">
+                        <div class="preview-card-icon career-icon">⌘</div>
+                        <div class="preview-card-copy">
+                            <span>02 · DISCOVER</span>
+                            <h3>Find your career direction</h3>
+                            <p>Connect your skills to career profiles.</p>
+                        </div>
+                        <span class="preview-arrow">↗</span>
+                    </a>
+
+                    <div class="preview-footer">
+                        <span class="footer-sparkle">✦</span>
+                        Every small step moves you forward.
+                    </div>
+                </div>
+
+                <div class="floating-note">
+                    <span class="floating-note-icon">↗</span>
+                    <div>
+                        <strong>Your future is yours</strong>
+                        <span>Start with one small step</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature introduction -->
+        <section class="features-section" id="features">
+            <div class="section-topline">ONE PLATFORM, TWO PATHS</div>
+
+            <div class="section-heading-row">
+                <div>
+                    <h2>Make your next move<br><span>with confidence.</span></h2>
+                </div>
+
+                <p>
+                    Whether you're learning a difficult concept or figuring
+                    out your professional direction, start right here.
+                </p>
+            </div>
+
+            <div class="feature-grid">
+
+                <article class="feature-card feature-study">
+                    <div class="feature-card-top">
+                        <div class="feature-icon">✎</div>
+                        <span class="feature-number">01</span>
+                    </div>
+
+                    <div class="feature-card-content">
+                        <span class="feature-label">LEARN SOMETHING NEW</span>
+                        <h3>Study smarter,<br>not harder.</h3>
+                        <p>
+                            Turn a subject into a structured learning plan.
+                            Explore topics and get help understanding
+                            challenging concepts with AI.
+                        </p>
+                    </div>
+
+                    <a href="/study" class="feature-action">
+                        Explore Study Assistant <span>→</span>
+                    </a>
+
+                    <div class="feature-decoration study-decoration">✳</div>
+                </article>
+
+                <article class="feature-card feature-career">
+                    <div class="feature-card-top">
+                        <div class="feature-icon career-feature-icon">⌘</div>
+                        <span class="feature-number">02</span>
+                    </div>
+
+                    <div class="feature-card-content">
+                        <span class="feature-label">DISCOVER YOUR POTENTIAL</span>
+                        <h3>Your skills.<br>Your opportunities.</h3>
+                        <p>
+                            Tell us what you know and what you're good at.
+                            Discover matching career profiles and identify
+                            skills you could develop next.
+                        </p>
+                    </div>
+
+                    <a href="/career" class="feature-action">
+                        Explore Career Finder <span>→</span>
+                    </a>
+
+                    <div class="feature-decoration career-decoration">✧</div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Closing call to action -->
+        <section class="closing-section">
+            <div class="closing-symbol">✦</div>
+            <p class="closing-eyebrow">YOUR JOURNEY BEGINS WITH A STEP</p>
+            <h2>You don't need every answer.<br>
+                <span>You just need to begin.</span>
+            </h2>
+            <a href="/study" class="btn btn-light">
+                Start Your Journey <span>→</span>
+            </a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <a href="/" class="brand footer-brand">
+            <span class="brand-icon">O</span>
+            <span>OpenDoor<span class="brand-highlight"> AI</span></span>
+        </a>
+
+        <p>Making learning and career discovery more accessible.</p>
+
+        <div class="footer-links">
+            <a href="/study">Study</a>
+            <a href="/career">Career</a>
+        </div>
+
+        <span class="copyright">© 2026 OpenDoor AI</span>
+    </footer>
+
+</body>
+</html>

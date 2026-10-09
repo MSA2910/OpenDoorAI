@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Your Learning Path | OpenDoor AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/main.css') }}?v=6">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/study.css') }}?v=6">
+
+
+
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <a href="/" class="brand">
+            <span class="brand-icon">O</span>
+            <span>OpenDoor<span class="brand-highlight"> AI</span></span>
+        </a>
+
+        <nav class="site-nav">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/study" class="nav-link active">Study</a>
+            <a href="/career" class="nav-link">Career</a>
+        </nav>
+
+        <a href="/career" class="header-cta">
+            Explore Careers <span>↗</span>
+        </a>
+    </header>
+
+
+    <main class="learn-page">
+
+        <!-- Introduction -->
+        <section class="learn-intro">
+            <a href="/study" class="learn-back-link">← Back to Study</a>
+
+            <span class="learn-eyebrow">
+                <span>✦</span> YOUR PERSONAL LEARNING PATH
+            </span>
+
+            <h1>
+                Your path to<br>
+                <span>understanding more.</span>
+            </h1>
+
+            <p>
+                Your subject has been broken into learning steps.
+                Start with the first topic, learn the concepts, and
+                move forward as your understanding grows.
+            </p>
+
+            <div class="learn-subject-card">
+                <div class="learn-subject-icon">📘</div>
+
+                <div class="learn-subject-info">
+                    <span>YOUR SELECTED SUBJECT</span>
+                    <h2>{{ topic }}</h2>
+                </div>
+
+                <span class="learn-subject-status">
+                    Learning path
+                </span>
+            </div>
+        </section>
+
+
+        <!-- Learning topics -->
+        <section class="path-section">
+
+            <div class="path-section-heading">
+                <div>
+                    <span class="section-kicker">YOUR CURRICULUM</span>
+                    <h2>Learn step by step</h2>
+                    <p>Choose a topic below to open its learning page.</p>
+                </div>
+
+                {% if topics is defined and topics %}
+                <div class="topic-count">
+                    <strong>{{ topics|length }}</strong>
+                    <span>Topics</span>
+                </div>
+                {% endif %}
+            </div>
+
+
+            {% if topics is defined and topics %}
+
+            <div class="topic-list">
+
+                {% for item in topics %}
+
+                {% set topic_title = item.get('title', item.get('topic', '')) if item is mapping else item %}
+
+                <a
+                    class="topic-card"
+                    href="{{ url_for('lesson', topic=topic_title, number=loop.index) }}"
+                >
+                    <div class="topic-number">
+                        {{ "%02d"|format(loop.index) }}
+                    </div>
+
+                    <div class="topic-content">
+                        <span class="topic-label">
+                            TOPIC {{ loop.index }}
+                        </span>
+
+                        <h3>{{ topic_title }}</h3>
+
+                        <p>
+                            Open this topic to explore the concepts
+                            and build your understanding.
+                        </p>
+                    </div>
+
+                    <div class="topic-card-action">
+                        <span>Learn</span>
+                        <span class="topic-arrow">→</span>
+                    </div>
+                </a>
+
+                {% endfor %}
+
+            </div>
+
+            {% else %}
+
+            <div class="learning-placeholder">
+                <div class="placeholder-icon">📚</div>
+                <h3>No learning topics found</h3>
+                <p>
+                    We couldn't find a topic list for this subject.
+                    Try generating a new learning path.
+                </p>
+                <a href="/study" class="placeholder-button">
+                    Create a Learning Path →
+                </a>
+            </div>
+
+            {% endif %}
+
+        </section>
+
+
+        <!-- AI study assistant -->
+        <section class="ai-tutor-box">
+            <div class="ai-tutor-icon">✦</div>
+
+            <div class="ai-tutor-content">
+                <span class="section-kicker">NEED A DIFFERENT APPROACH?</span>
+                <h2>Learn in a way that works for you.</h2>
+                <p>
+                    You can create a new study plan for another subject
+                    whenever you're ready.
+                </p>
+            </div>
+
+            <a href="/study" class="ai-tutor-button">
+                Create New Plan <span>→</span>
+            </a>
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <a href="/" class="brand footer-brand">
+            <span class="brand-icon">O</span>
+            <span>OpenDoor<span class="brand-highlight"> AI</span></span>
+        </a>
+
+        <p>Making learning and career discovery more accessible.</p>
+
+        <div class="footer-links">
+            <a href="/study">Study</a>
+            <a href="/career">Career</a>
+        </div>
+
+        <span class="copyright">© 2026 OpenDoor AI</span>
+    </footer>
+
+</body>
+</html>

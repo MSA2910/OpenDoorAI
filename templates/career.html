@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Career Explorer | OpenDoor AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/main.css') }}?v=4">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/career.css') }}?v=4">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <a href="/" class="brand">
+            <span class="brand-icon">O</span>
+            <span>OpenDoor<span class="brand-highlight"> AI</span></span>
+        </a>
+
+        <nav class="site-nav">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/study" class="nav-link">Study</a>
+            <a href="/career" class="nav-link active">Career</a>
+        </nav>
+
+        <a href="/study" class="header-cta">
+            Keep Learning <span>↗</span>
+        </a>
+    </header>
+
+
+    <main class="career-page">
+
+        <!-- Hero -->
+        <section class="career-hero">
+            <div class="career-hero-copy">
+                <span class="career-eyebrow">
+                    <span class="eyebrow-dot"></span>
+                    YOUR SKILLS. YOUR NEXT STEP.
+                </span>
+
+                <h1>
+                    Discover where your<br>
+                    <span>skills can take you.</span>
+                </h1>
+
+                <p>
+                    Tell us what you know, and let AI identify career profiles
+                    that fit your current skills. Discover what you are suited
+                    for and which skills could help you qualify for more roles.
+                </p>
+
+                <div class="career-benefits">
+                    <div>
+                        <span class="benefit-check">✓</span>
+                        Skill-based role matching
+                    </div>
+                    <div>
+                        <span class="benefit-check">✓</span>
+                        Personalized skill-gap insights
+                    </div>
+                    <div>
+                        <span class="benefit-check">✓</span>
+                        Clear eligibility guidance
+                    </div>
+                </div>
+            </div>
+
+            <div class="career-hero-visual">
+                <div class="career-visual-top">
+                    <div class="visual-icon">✦</div>
+                    <div>
+                        <strong>Your potential, mapped out.</strong>
+                        <span>Make your skills work for you</span>
+                    </div>
+                </div>
+
+                <div class="career-visual-path">
+                    <div class="path-step">
+                        <div class="path-step-icon">01</div>
+                        <div class="path-step-copy">
+                            <strong>Your skills</strong>
+                            <span>What you already know</span>
+                        </div>
+                        <span class="path-step-check">✓</span>
+                    </div>
+
+                    <div class="path-connector"></div>
+
+                    <div class="path-step">
+                        <div class="path-step-icon">02</div>
+                        <div class="path-step-copy">
+                            <strong>Career matches</strong>
+                            <span>Roles aligned with your skills</span>
+                        </div>
+                        <span class="path-step-arrow">↗</span>
+                    </div>
+
+                    <div class="path-connector"></div>
+
+                    <div class="path-step">
+                        <div class="path-step-icon">03</div>
+                        <div class="path-step-copy">
+                            <strong>Your next opportunity</strong>
+                            <span>Skills to strengthen next</span>
+                        </div>
+                        <span class="path-step-sparkle">✦</span>
+                    </div>
+                </div>
+
+                <div class="career-visual-note">
+                    <span>✦</span>
+                    Built around your current abilities
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Career form -->
+        <section class="career-workspace" id="career-form">
+            <div class="workspace-heading">
+                <div>
+                    <span class="section-kicker">CAREER MATCHING</span>
+                    <h2>Build your skill profile</h2>
+                    <p>
+                        Select your skills or describe them in your own words.
+                        You can do either one, or use both for better results.
+                    </p>
+                </div>
+
+                <div class="step-indicator">
+                    <span class="step-indicator-number">01</span>
+                    <span>Profile setup</span>
+                </div>
+            </div>
+
+            <form action="/career" method="POST" class="career-form">
+
+                <div class="form-section">
+                    <div class="form-section-heading">
+                        <div class="form-section-icon">✓</div>
+                        <div>
+                            <h3>Select your skills</h3>
+                            <p>Choose all that apply to you.</p>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Programming languages</h4>
+
+                        <div class="skill-grid">
+                            {% for skill in [
+                                'Python', 'C', 'C++', 'Java',
+                                'JavaScript', 'SQL'
+                            ] %}
+                            <label class="skill-option">
+                                <input
+                                    type="checkbox"
+                                    name="skills"
+                                    value="{{ skill }}"
+                                    {% if selected_skills is defined and skill in selected_skills %}checked{% endif %}
+                                >
+                                <span class="skill-checkbox"></span>
+                                <span class="skill-name">{{ skill }}</span>
+                            </label>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Web and software development</h4>
+
+                        <div class="skill-grid">
+                            {% for skill in [
+                                'HTML', 'CSS', 'Flask', 'React',
+                                'Node.js', 'REST APIs', 'Git'
+                            ] %}
+                            <label class="skill-option">
+                                <input
+                                    type="checkbox"
+                                    name="skills"
+                                    value="{{ skill }}"
+                                    {% if selected_skills is defined and skill in selected_skills %}checked{% endif %}
+                                >
+                                <span class="skill-checkbox"></span>
+                                <span class="skill-name">{{ skill }}</span>
+                            </label>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Data and artificial intelligence</h4>
+
+                        <div class="skill-grid">
+                            {% for skill in [
+                                'Machine Learning', 'Data Analysis',
+                                'Pandas', 'NumPy', 'SQL Databases',
+                                'Deep Learning', 'Generative AI', 'RAG'
+                            ] %}
+                            <label class="skill-option">
+                                <input
+                                    type="checkbox"
+                                    name="skills"
+                                    value="{{ skill }}"
+                                    {% if selected_skills is defined and skill in selected_skills %}checked{% endif %}
+                                >
+                                <span class="skill-checkbox"></span>
+                                <span class="skill-name">{{ skill }}</span>
+                            </label>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Tools and other skills</h4>
+
+                        <div class="skill-grid">
+                            {% for skill in [
+                                'Linux', 'Docker', 'Cloud Computing',
+                                'Cybersecurity', 'Problem Solving',
+                                'Data Structures', 'Algorithms'
+                            ] %}
+                            <label class="skill-option">
+                                <input
+                                    type="checkbox"
+                                    name="skills"
+                                    value="{{ skill }}"
+                                    {% if selected_skills is defined and skill in selected_skills %}checked{% endif %}
+                                >
+                                <span class="skill-checkbox"></span>
+                                <span class="skill-name">{{ skill }}</span>
+                            </label>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-divider">
+                    <span>AND / OR</span>
+                </div>
+
+
+                <div class="form-section description-section">
+                    <div class="form-section-heading">
+                        <div class="form-section-icon description-icon">✎</div>
+                        <div>
+                            <h3>Describe your skills</h3>
+                            <p>Use your own words. AI can help identify the skills you mention.</p>
+                        </div>
+                    </div>
+
+                    <label for="skill_description" class="field-label">
+                        Your skills and experience
+                    </label>
+
+                    <textarea
+                        id="skill_description"
+                        name="skill_description"
+                        rows="5"
+                        maxlength="3000"
+                        placeholder="For example: I know Python and SQL, have built a few machine learning projects, and understand basic HTML and CSS..."
+                    >{{ request.form.get('skill_description', '') }}</textarea>
+
+                    <div class="textarea-footer">
+                        <span>Include projects, tools, coursework, or practical experience.</span>
+                        <span>Optional</span>
+                    </div>
+                </div>
+
+
+                <div class="form-submit-area">
+                    <div class="submit-note">
+                        <span>🔒</span>
+                        Your profile is used to generate career suggestions.
+                    </div>
+
+                    <button type="submit" class="career-submit-btn">
+                        Find My Career Matches <span>→</span>
+                    </button>
+                </div>
+
+            </form>
+        </section>
+
+
+        <!-- Results -->
+        {% if results is defined and results %}
+        <section class="career-results" id="career-results">
+            <div class="results-heading">
+                <div>
+                    <span class="section-kicker">YOUR RESULTS</span>
+                    <h2>Career profiles for your skills</h2>
+                    <p>Explore these role matches and the skills you may want to strengthen.</p>
+                </div>
+
+                <a href="#career-form" class="edit-profile-link">Edit profile ↗</a>
+            </div>
+
+            {% if detected_skills is defined and detected_skills %}
+            <div class="detected-skills">
+                <strong>Skills identified from your description</strong>
+                <div class="detected-skill-list">
+                    {% for skill in detected_skills %}
+                    <span>{{ skill }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            <div class="role-grid">
+                {% for role in results %}
+                <article class="role-card">
+                    <div class="role-card-top">
+                        <span class="role-icon">✦</span>
+                        <span class="role-number">
+                            MATCH {{ loop.index }}
+                        </span>
+                    </div>
+
+                    <h3>
+                        {% if role is mapping %}
+                            {{ role.get('title', role.get('role', 'Career Profile')) }}
+                        {% else %}
+                            {{ role }}
+                        {% endif %}
+                    </h3>
+
+                    {% if role is mapping %}
+                        {% if role.get('description') %}
+                        <p class="role-description">{{ role.get('description') }}</p>
+                        {% endif %}
+
+                        {% if role.get('score') is not none %}
+                        <div class="match-score">
+                            <div class="match-score-label">
+                                <span>Skill match</span>
+                                <strong>{{ role.get('score') }}%</strong>
+                            </div>
+                            <div class="match-track">
+                                <span data-score="{{ role.get('score') }}"></span>
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        {% if role.get('eligible') is not none %}
+                        <div class="eligibility-status">
+                            <span class="status-dot"></span>
+                            {{ role.get('eligible') }}
+                        </div>
+                        {% endif %}
+
+                        {% if role.get('missing_skills') %}
+                        <div class="missing-skills">
+                            <strong>Skills to develop</strong>
+                            <div class="detected-skill-list">
+                                {% for skill in role.get('missing_skills') %}
+                                <span>{{ skill }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endif %}
+                    {% endif %}
+
+                    {% if role is mapping and role.get('details') %}
+                    <button
+                        type="button"
+                        class="role-details-btn"
+                        onclick="toggleRoleDetails(this)"
+                        aria-expanded="false"
+                    >
+                        View role details <span>＋</span>
+                    </button>
+
+                    <div class="role-details-content" hidden>
+                        {{ role.get('details') }}
+                    </div>
+                    {% endif %}
+                </article>
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <a href="/" class="brand footer-brand">
+            <span class="brand-icon">O</span>
+            <span>OpenDoor<span class="brand-highlight"> AI</span></span>
+        </a>
+
+        <p>Making learning and career discovery more accessible.</p>
+
+        <div class="footer-links">
+            <a href="/study">Study</a>
+            <a href="/career">Career</a>
+        </div>
+
+        <span class="copyright">© 2026 OpenDoor AI</span>
+    </footer>
+
+
+    <script>
+        document.querySelectorAll('.match-track span[data-score]').forEach(fill => {
+            fill.style.width = `${fill.dataset.score}%`;
+        });
+
+        function toggleRoleDetails(button) {
+            const details = button.nextElementSibling;
+            const isHidden = details.hidden;
+
+            details.hidden = !isHidden;
+            button.setAttribute('aria-expanded', String(isHidden));
+            button.innerHTML = isHidden
+                ? 'Hide role details <span>−</span>'
+                : 'View role details <span>＋</span>';
+        }
+    </script>
+
+</body>
+</html>
